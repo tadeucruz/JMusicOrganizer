@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="JMusicOrganizer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JMusicOrganizer_jar</output-path>
+    <root id="archive" name="JMusicOrganizer.jar">
+      <element id="module-output" name="JMusicOrganizer" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/commons-io-2.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jaudiotagger-2.2.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
