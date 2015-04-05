@@ -36,12 +36,17 @@ public class MainControler {
             if (isMusic(f)) {
                 try {
                     FileMusic fm = new FileMusic(f.toString());
+                    if (fm.getArtist() != null) {
+                        String distPath = pathDest + "/" + fm.getArtist().replace("/", "_") + "/" + fm.getAlbum();
+                        String newMusic = distPath + "/" + fm.getTrack() + " - " + fm.getTitle() + "." + FilenameUtils.getExtension(f.toString());
 
-                    String distPath = pathDest + "/" + fm.getArtist() + "/" + fm.getAlbum();
-                    String newMusic = distPath + "/" + fm.getTrack() + " - " + fm.getTitle() + "." + FilenameUtils.getExtension(f.toString());
-                    mkdir(distPath);
-                    copy(f.toString(), newMusic);
+                        distPath = FilenameUtils.normalize(distPath);
+                        newMusic = FilenameUtils.normalize(newMusic);
 
+                        mkdir(distPath);
+                        System.out.println("Criando/copiando o arquivo: " + newMusic);
+                        copy(f.toString(), newMusic);
+                    }
                 } catch (TagException e) {
                     e.printStackTrace();
                 } catch (ReadOnlyFileException e) {

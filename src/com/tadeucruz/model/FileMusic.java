@@ -29,7 +29,15 @@ public class FileMusic {
     }
 
     public String getArtist() {
-        return musicTag.getFirst(FieldKey.ARTIST);
+        String volta = null;
+        try {
+            volta = musicTag.getFirst(FieldKey.ARTIST);
+        } catch (NullPointerException ex) {
+            System.out.println("O arquivo não apresenta um Artista para fazer a organização: " + path);
+            volta = null;
+        }
+
+        return volta;
     }
 
     public String getAlbum() {
